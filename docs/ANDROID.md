@@ -155,7 +155,8 @@ Language packs therefore reuse the same HID codes as the English template positi
 
 ### Bundled templates / languages
 
-Templates: `macos`, `pc`, `number`  
+Templates: `macos`, `pc`, `number`. Both `macos` and `pc` include an Esc / F1–F12 / Delete row, backtick/tilde, and backslash/pipe keys; Shift selects the shifted symbols.
+
 Language packs: `en`, `ru`
 
 ### Switching

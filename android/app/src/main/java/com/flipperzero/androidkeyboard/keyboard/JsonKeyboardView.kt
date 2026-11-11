@@ -54,13 +54,14 @@ class JsonKeyboardView @JvmOverloads constructor(
 
         val density = resources.displayMetrics.density
         val margin = (4 * density).toInt()
+        val verticalMargin = density.toInt()
 
         layout.rows.forEach { row ->
             val grid = GridLayout(context)
             val totalSpan = row.sumOf { it.span.toDouble() }.toFloat().coerceAtLeast(1f)
             val unitColumns = (totalSpan * 2).toInt().coerceAtLeast(row.size)
             grid.columnCount = unitColumns
-            grid.setPadding(margin, margin / 2, margin, margin / 2)
+            grid.setPadding(margin, 0, margin, 0)
 
             var column = 0
             row.forEach { cell ->
@@ -72,15 +73,17 @@ class JsonKeyboardView @JvmOverloads constructor(
 
                 val params = GridLayout.LayoutParams().apply {
                     width = 0
-                    height = LayoutParams.WRAP_CONTENT
+                    height = 0
+                    rowSpec = GridLayout.spec(0, GridLayout.FILL, 1f)
                     columnSpec = GridLayout.spec(column, units, units.toFloat())
-                    setMargins(margin, margin, margin, margin)
+                    setMargins(margin, verticalMargin, margin, verticalMargin)
                 }
                 view.layoutParams = params
                 grid.addView(view)
                 column += units
             }
-            addView(grid)
+            // Share the available height so extra rows cannot clip the bottom keys.
+            addView(grid, LayoutParams(LayoutParams.MATCH_PARENT, 0, 1f))
         }
         refreshStickyVisuals()
     }
@@ -131,11 +134,7 @@ class JsonKeyboardView @JvmOverloads constructor(
             }
             setTextSize(TypedValue.COMPLEX_UNIT_SP, primarySp)
             typeface = Typeface.DEFAULT_BOLD
-            val padV = when {
-                stacked -> (4 * density).toInt()
-                dual -> (8 * density).toInt()
-                else -> (12 * density).toInt()
-            }
+            val padV = if (stacked) (4 * density).toInt() else 0
             setPadding(0, padV, 0, padV)
             attachKeyInteraction(key, this)
             keyViews += key to this

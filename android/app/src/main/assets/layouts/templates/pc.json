@@ -4,6 +4,68 @@
   "rows": [
     [
       {
+        "label": "esc",
+        "hid": "0x29"
+      },
+      {
+        "label": "F1",
+        "hid": "0x3A"
+      },
+      {
+        "label": "F2",
+        "hid": "0x3B"
+      },
+      {
+        "label": "F3",
+        "hid": "0x3C"
+      },
+      {
+        "label": "F4",
+        "hid": "0x3D"
+      },
+      {
+        "label": "F5",
+        "hid": "0x3E"
+      },
+      {
+        "label": "F6",
+        "hid": "0x3F"
+      },
+      {
+        "label": "F7",
+        "hid": "0x40"
+      },
+      {
+        "label": "F8",
+        "hid": "0x41"
+      },
+      {
+        "label": "F9",
+        "hid": "0x42"
+      },
+      {
+        "label": "F10",
+        "hid": "0x43"
+      },
+      {
+        "label": "F11",
+        "hid": "0x44"
+      },
+      {
+        "label": "F12",
+        "hid": "0x45"
+      },
+      {
+        "label": "Del",
+        "hid": "0x4C"
+      }
+    ],
+    [
+      {
+        "label": "`",
+        "hid": "0x35"
+      },
+      {
         "label": "1",
         "hid": "0x1E"
       },
@@ -112,6 +174,10 @@
         "label": "]",
         "hid": "0x30",
         "fill": "]"
+      },
+      {
+        "label": "\\",
+        "hid": "0x31"
       }
     ],
     [

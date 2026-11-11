@@ -11,8 +11,8 @@ android {
         applicationId = "com.flipperzero.androidkeyboard"
         minSdk = 26
         targetSdk = 34
-        versionCode = 13
-        versionName = "0.5.8"
+        versionCode = 14
+        versionName = "0.5.8-keys1"
     }
 
     buildTypes {
